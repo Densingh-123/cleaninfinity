@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // Database connection
-const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/cleaninfinity';
+const db = process.env.MONGODB_URI ;
 
 mongoose.connect(db)
     .then(() => console.log('MongoDB connected'))
