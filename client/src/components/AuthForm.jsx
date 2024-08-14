@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../assets/styles/AuthForm.css'
 
 const AuthForm = () => {
   const [formType, setFormType] = useState('login');
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    name: '', // Only needed for registration
+    name: '', 
   });
 
   const handleChange = (e) => {
@@ -20,17 +21,15 @@ const AuthForm = () => {
       const url = formType === 'login' ? 'http://localhost:5000/api/login' : 'http://localhost:5000/api/register';
       const response = await axios.post(url, formData);
       console.log(response.data);
-      // Handle response, e.g., redirect or show a success message
     } catch (error) {
       console.error(error);
-      // Handle error, e.g., show an error message
     }
   };
 
   return (
-    <div className="container">
-      <div className="row justify-content-center">
-        <div className="col-md-6">
+    <div className="container mt-5">
+      <div className="row justify-content-center mt-5">
+        <div className="col-md-6 mt-5">
           <div className="card mt-5">
             <div className="card-body">
               <h4 className="card-title text-center">{formType === 'login' ? 'Login' : 'Register'}</h4>
