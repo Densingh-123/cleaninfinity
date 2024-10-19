@@ -1,9 +1,20 @@
-const mongoose = require('mongoose');
+const { DataTypes } = require('sequelize');
+const sequelize = require('./db');
 
-const userSchema = new mongoose.Schema({
-  name: { type: String },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+const User = sequelize.define('User', {
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+  },
 });
 
-module.exports = mongoose.model('User', userSchema);
+User.sync({ force: false })
+  .then(() => console.log('User table created'))
+  .catch(err => console.log('Error creating table:', err));
+
+module.exports = User;
