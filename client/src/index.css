@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  min-height: 100vh;
+}
+
+input {
+  @apply border-2 rounded-lg p-2 mb-4 border-medium-green hover:shadow-md;
+}
+
+.animate {
+  @apply transition-all duration-700 ease-in-out;
+}
+.authBtn button {
+  @apply w-1/2 p-2;
+}
+.notActivebtn {
+  @apply text-medium-green border-2 border-medium-green border-solid;
+}
+.activeBtn {
+  @apply bg-medium-green text-white;
+}
